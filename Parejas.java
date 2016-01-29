@@ -44,7 +44,7 @@ public class Parejas
         alumnos.add("Robles González, Miguel Ángel");
         alumnos.add("Sánchez Manzano, Adán");
         alumnos.add("Serrano García, Verónica");
-        
+        alumnos.add("Tascón González, Anibal");
     }
 
     /**
@@ -53,18 +53,19 @@ public class Parejas
 
     public void aleatoriosParejas()
     {
+        //de esta las hace aleatoriamente y en pareja 
         Collections.shuffle(alumnos);
-        boolean condicion = true;
+        boolean parejaConDosMiembros = true;
         int saberPar = alumnos.size()%2;
         int contador = 0;
         if (saberPar == 0){
             for(String alumno : alumnos){
-                if (condicion){
+                if (parejaConDosMiembros){
                     contador = contador +1;
-                    condicion = false;
+                    parejaConDosMiembros = false;
                 }
                 else{
-                    condicion = true;
+                    parejaConDosMiembros = true;
                 }
                 String muestra = String.format("%02d",contador);
                 System.out.println("00" + muestra + alumno);
@@ -73,20 +74,52 @@ public class Parejas
         else {
             for(String alumno : alumnos){
                 if (contador == (alumnos.size()/2)){
-                   
+
                 }
-                else if (condicion){
+                else if (parejaConDosMiembros){
                     contador = contador +1;
-                    condicion = false;
+                    parejaConDosMiembros = false;
                 }
                 else{
-                    
-                    condicion = true;
+
+                    parejaConDosMiembros = true;
                 }
                 String muestra = String.format("%02d",contador);
                 System.out.println("00" + muestra + alumno);
             }
         }
+
+    }
+
+    /**
+     * metodo para crear parejas segun sea par o impar el numero de alumnos de otra forma .
+     */
+
+    public void aleatoriosParejas2()
+    {
+        //de esta forma solo los hace aleatoriamente 
+        Collections.shuffle(alumnos);
+        int contador = 0;
+        boolean parejaConDosMiembros = true;
+        while (contador<alumnos.size()){
+            String alumno = alumnos.get(contador);
+            contador = contador +1;
+            String muestra = String.format("%02d",contador);
+            System.out.println("00" + muestra + alumno);
+            
+        }
+        
+        
+
+
+        
+    }
+
+    /**
+     * mostrar parejas segun el numero que se le asigne 
+     */
+    public void mostrarAlumnos(int numeroGrupo)
+    {
 
     }
 }
